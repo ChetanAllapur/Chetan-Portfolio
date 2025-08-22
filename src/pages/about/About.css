@@ -1,0 +1,90 @@
+.about {
+  padding: 4rem 0;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.about-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* 2 columns on md+ screens */
+@media (min-width: 900px) {
+  .about-grid {
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Left card */
+.about-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+.about-photo {
+  aspect-ratio: 1 / 1;
+  background: #f2f4f8;
+  overflow: hidden;
+}
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-meta {
+  padding: 1rem 1.25rem 1.25rem;
+}
+.about-meta h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.25rem;
+}
+.about-meta p {
+  margin: 0;
+  color: #666;
+}
+
+/* Right column */
+.about-content {
+  display: grid;
+  gap: 1rem;
+  max-width: 900px;
+}
+.about-content h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.5vw + 1rem, 2.25rem);
+}
+
+/* Skills grid */
+.skills {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+@media (min-width: 680px) {
+  .skills {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .skills {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.skill {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  background: #f5f7ff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 0.9rem;
+  text-align: center;
+}

@@ -1,0 +1,13 @@
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  text-align: center;
+  color: #555;
+  font-size: 0.95rem;
+}

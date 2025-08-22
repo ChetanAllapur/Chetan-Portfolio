@@ -1,0 +1,23 @@
+.home {
+  /* Don’t vertically center the whole viewport on desktop */
+  padding: 4rem 0; /* space around the section */
+  background: #f5f7fb; /* subtle contrast from body */
+}
+
+/* Hero block spacing */
+.home-hero {
+  display: grid;
+  gap: 1rem;
+  align-content: start; /* content starts near top */
+  max-width: 900px; /* readable line-length */
+}
+
+/* Slightly larger spacing on wider screens */
+@media (min-width: 768px) {
+  .home {
+    padding: 6rem 0;
+  }
+  .home-hero {
+    gap: 1.25rem;
+  }
+}

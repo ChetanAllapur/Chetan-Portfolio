@@ -1,0 +1,85 @@
+.contact {
+  padding: 4rem 0;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contact-head {
+  max-width: 900px;
+  margin-bottom: 1.5rem;
+}
+.contact-head h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: clamp(1.75rem, 2.5vw + 1rem, 2.25rem);
+}
+.contact-head p {
+  margin: 0;
+  color: #444;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 760px;
+}
+
+.row {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 680px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+.field label {
+  font-size: 0.95rem;
+  color: #333;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: #7aa7ff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  background: #fff;
+}
+
+.btn {
+  width: fit-content;
+  padding: 0.8rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #111827;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+.btn:active {
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .contact {
+    padding: 6rem 0;
+  }
+}

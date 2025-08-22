@@ -1,0 +1,120 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Inner container aligns with page width */
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  /* Space between brand (logo+hamburger) and links */
+  justify-content: space-between;
+}
+
+/* Brand row holds logo + hamburger on mobile */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Links (desktop default) */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+/* Active link underline */
+.nav-links a.active {
+  color: #0b63f6;
+  position: relative;
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.9;
+}
+
+/* Hamburger (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.nav-toggle .bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #111;
+}
+
+/* ===== Mobile layout ===== */
+@media (max-width: 767px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  /* Make links a slide-down panel */
+  .nav-links {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 64px; /* below navbar */
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    display: grid; /* vertical stack */
+    gap: 0;
+    padding: 8px 0;
+    max-height: 0; /* hidden by default */
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  /* When navbar has .open, reveal menu */
+  .navbar.open .nav-links {
+    max-height: 280px; /* enough for 4 links */
+  }
+
+  .nav-links li {
+    padding: 2px 0;
+  }
+  .nav-links a {
+    display: block;
+    padding: 12px 24px;
+  }
+}
