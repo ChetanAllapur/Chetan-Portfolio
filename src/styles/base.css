@@ -1,0 +1,99 @@
+:root{
+  --bg: #0a0f1a;            /* page background (black/navy) */
+  --card: #0f1625;          /* card surface */
+  --text: #e6edf3;          /* primary text */
+  --muted: #9aa4b2;         /* secondary text */
+  --ring: rgba(120, 162, 255, 0.25);
+  --border: rgba(255,255,255,0.08);
+  --radius: 18px;
+  --shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  padding: 0;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+}
+
+/* shared container */
+.container {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+}
+
+/* outer spacing between sections */
+.section {
+  padding: 28px 0;
+}
+
+/* the card wrapper for each section */
+.section-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-2px);
+}
+
+.section-card:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ring), var(--shadow);
+}
+
+/* headings on dark */
+.section-card h1,
+.section-card h2,
+.section-card h3 {
+  margin: 0 0 6px 0;
+}
+
+.section-card p { color: var(--muted); }
+
+/* ----------------------------------------------------
+   Load animation handled on an INNER wrapper to avoid
+   conflicts with :hover transforms on .section-card
+-----------------------------------------------------*/
+.card-inner {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: cardInnerIn 600ms ease forwards;
+}
+
+@keyframes cardInnerIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered delays per section */
+#home    .card-inner { animation-delay: 80ms; }
+#about   .card-inner { animation-delay: 120ms; }
+#projects .card-inner { animation-delay: 160ms; }
+#contact .card-inner { animation-delay: 200ms; }
+
+/* -------------------------
+   (Optional) scroll reveal
+   (kept for future if needed)
+-------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* keep all sections from hiding under navbar */
+#home, #about, #projects, #contact { scroll-margin-top: 64px; } /* match navbar height */

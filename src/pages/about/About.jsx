@@ -1,29 +1,36 @@
-import './About.css';
-import profile from '../../assets/profile.jpg';
+import "./About.css";
+import profile from "../../assets/profile.jpg";
+import { motion } from "framer-motion";
 
 export default function About() {
   const skills = [
-    'JavaScript (ES6+)',
-    'TypeScript',
-    'React',
-    'Redux',
-    'Node.js',
-    'Express',
-    'MongoDB',
-    'REST APIs',
-    'HTML5',
-    'CSS3',
-    'Tailwind',
-    'Vite',
-    'Git/GitHub',
-    'CI/CD',
-    'Testing (Jest/RTL)',
+    "JavaScript (ES6+)",
+    "TypeScript",
+    "React",
+    "Redux",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "REST APIs",
+    "HTML5",
+    "CSS3",
+    "Tailwind",
+    "Vite",
+    "Git/GitHub",
+    "CI/CD",
+    "Testing (Jest/RTL)",
   ];
 
   return (
-    <section id="about" className="about">
+    <section id="about" className="section">
       <div className="container">
-        <div className="about-grid">
+        <motion.div
+          className="section-card about-grid"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           {/* Left: Image / Card */}
           <aside className="about-card">
             <div className="about-photo">
@@ -52,7 +59,7 @@ export default function About() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

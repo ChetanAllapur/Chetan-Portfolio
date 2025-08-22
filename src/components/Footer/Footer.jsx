@@ -1,11 +1,33 @@
-import './Footer.css';
+import "./Footer.css";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+
   return (
-    <footer className="footer">
-      <div className="container footer-inner">
-        <p>© {year} MyPortfolio · All rights reserved.</p>
+    <footer className="footer section">
+      <div className="container">
+        <div className="section-card footer-card">
+          <div className="footer-grid">
+            <div className="left">
+              <div className="brand">
+                <span className="dot" /> Chetan <span className="fade">Allapur</span>
+              </div>
+              <p className="tag">Software Engineer · React / MERN</p>
+            </div>
+
+            <div className="right">
+              <a className="link" href="mailto:allapurchetan@gmail.com">Email</a>
+              <a className="link" href="https://github.com/ChetanAllapur" target="_blank" rel="noreferrer">GitHub</a>
+              <a className="link" href="https://www.linkedin.com/in/chetan-allapur" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a className="link" href="https://www.instagram.com/chetan.allapur/" target="_blank" rel="noreferrer">Instagram</a>
+              <a className="btn small ghost" href="/Chetan-Allapur-Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+            </div>
+          </div>
+
+          <div className="copy">
+            © {year} Chetan Allapur. All rights reserved.
+          </div>
+        </div>
       </div>
     </footer>
   );

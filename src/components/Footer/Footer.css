@@ -1,13 +1,135 @@
-.footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  background: #fff;
+.footer-card { padding: 18px; }
+
+.footer-grid {
+  display: grid;
+  gap: 14px;
+  align-items: center;
 }
 
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
+@media (min-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+}
+.brand .fade { color: var(--muted); font-weight: 700; }
+.brand .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: linear-gradient(90deg, #86b7ff, #b389ff);
+  display: inline-block;
+}
+
+.tag { margin: 4px 0 0 0; color: var(--muted); }
+
+.right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* --- New “button-like” link styling --- */
+:root {
+  /* fallback if not already set */
+  --accent: #4f46e5;
+  --link-bg: rgba(255, 255, 255, 0.05);
+  --link-bg-hover: rgba(255, 255, 255, 0.08);
+  --link-border: rgba(255, 255, 255, 0.10);
+  --link-border-hover: rgba(79, 70, 229, 0.35); /* accent-ish */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.25);
+  --shadow-sm: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+.link {
+  /* buttony look */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  color: var(--text);
+  text-decoration: none;
+
+  background: var(--link-bg);
+  border: 1px solid var(--link-border);
+  box-shadow: var(--shadow-xs);
+
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    opacity 160ms ease;
+  will-change: transform;
+}
+
+.link:hover {
+  background: var(--link-bg-hover);
+  border-color: var(--link-border-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.link:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-xs);
+  opacity: 0.95;
+}
+
+.link:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.2),
+    0 0 0 6px rgba(79, 70, 229, 0.35);
+}
+
+/* Keep your existing ghost resume button consistent */
+.btn.small.ghost {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--link-border);
+  background: transparent;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+.btn.small.ghost:hover {
+  border-color: var(--link-border-hover);
+  background: var(--link-bg-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+.btn.small.ghost:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.2),
+    0 0 0 6px rgba(79, 70, 229, 0.35);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .btn.small.ghost {
+    transition: none;
+    transform: none !important;
+  }
+}
+
+.copy {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
   text-align: center;
-  color: #555;
-  font-size: 0.95rem;
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
 }

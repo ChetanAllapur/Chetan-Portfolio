@@ -1,23 +1,183 @@
-.home {
-  /* Don’t vertically center the whole viewport on desktop */
-  padding: 4rem 0; /* space around the section */
-  background: #f5f7fb; /* subtle contrast from body */
+/* Home card sits inside .section-card */
+#home.section { 
+  padding-top: 28px; /* small buffer under navbar */
 }
 
-/* Hero block spacing */
-.home-hero {
+/* Prevent anchor jump from hiding under fixed/sticky navbar */
+#home { scroll-margin-top: 64px; } /* adjust to navbar height */
+
+/* Grid: intro left, aside right */
+.home-grid {
   display: grid;
-  gap: 1rem;
-  align-content: start; /* content starts near top */
-  max-width: 900px; /* readable line-length */
+  gap: 2rem;
+  align-items: center;
 }
 
-/* Slightly larger spacing on wider screens */
-@media (min-width: 768px) {
-  .home {
-    padding: 6rem 0;
+@media (min-width: 900px) {
+  .home-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2.5rem;
   }
-  .home-hero {
-    gap: 1.25rem;
+}
+
+/* Intro */
+.home-intro .eyebrow {
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin: 0 0 6px 0;
+}
+
+.home-intro .title {
+  margin: 0;
+  line-height: 1.1;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+}
+
+.home-intro .accent {
+  background: linear-gradient(90deg, #86b7ff, #b389ff, #86b7ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home-intro .subtitle {
+  margin: 6px 0 10px 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.home-intro .blurb {
+  margin: 0 0 18px 0;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 58ch;
+}
+
+/* Buttons (base) */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  margin-right: 10px;
+}
+
+.btn.primary {
+  background: rgba(120, 162, 255, 0.12);
+  border-color: rgba(120, 162, 255, 0.35);
+}
+
+.btn.ghost:hover { background: rgba(255,255,255,0.06); }
+.btn.primary:hover { background: rgba(120, 162, 255, 0.22); }
+.btn:active { transform: translateY(1px); }
+
+/* CTA container */
+.cta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+
+/* 📱 Mobile: make CTA buttons single-line, equal width, perfect size */
+@media (max-width: 520px) {
+  .cta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
   }
+  .cta .btn {
+    margin-right: 0;
+    width: 100%;
+    min-height: 44px;           /* recommended tap target */
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    
+    /* keep label on one line & center nicely */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+}
+
+/* ultra-narrow phones: stack vertically */
+@media (max-width: 360px) {
+  .cta { grid-template-columns: 1fr; }
+}
+
+/* Quick links */
+.quick-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.quick-links a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+}
+.quick-links a:hover { border-bottom-color: var(--border); }
+
+/* Aside */
+.home-aside {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.badge {
+  width: fit-content;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(120, 255, 180, 0.08);
+}
+
+.stat {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Tech cloud chips */
+.tech-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.tech-cloud span {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(120, 162, 255, 0.08);
+  font-size: 0.85rem;
+  transition: transform .18s ease, background .18s ease;
+}
+
+.tech-cloud span:hover {
+  background: rgba(120, 162, 255, 0.18);
+  transform: translateY(-2px);
 }

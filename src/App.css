@@ -1,10 +1,28 @@
+/* Layout shell */
 .app {
-  min-height: 100%;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
 
+/* Main content area */
 .app-content {
-  flex: 1 0 auto; /* push footer down */
-  padding: 2.5rem 0; /* vertical breathing room */
+  flex: 1;
+  display: block;
+  padding-top: 12px; /* breathing room below sticky nav */
+}
+
+/* Smooth scrolling between #anchors */
+html { scroll-behavior: smooth; }
+
+/* Prevent headings from being hidden under the sticky navbar
+   when navigating to #home, #about, #projects, #contact */
+section[id] {
+  scroll-margin-top: 84px; /* ~navbar height + gap */
+}
+
+/* Optional: tighten spacing on very small screens */
+@media (max-width: 420px) {
+  .app-content { padding-top: 8px; }
+  section[id] { scroll-margin-top: 92px; }
 }

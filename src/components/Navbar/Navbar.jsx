@@ -1,74 +1,68 @@
-import { useEffect, useState } from 'react';
-import './Navbar.css';
+import { useState } from "react";
+import "./Navbar.css";
 
 export default function Navbar() {
-  const [active, setActive] = useState('#home');
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  // Sync active from URL hash
-  useEffect(() => {
-    const init = window.location.hash || '#home';
-    setActive(init);
-
-    const onHashChange = () => setActive(window.location.hash || '#home');
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
-
-  // Close menu on resize to desktop
-  useEffect(() => {
-    const onResize = () => {
-      if (window.innerWidth >= 768) setMenuOpen(false);
-    };
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-
-  const nav = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' },
-  ];
-
-  const handleNavClick = (href) => {
-    setActive(href);
-    setMenuOpen(false); // close on selection (mobile)
-  };
+  const closeMenu = () => setOpen(false);
 
   return (
-    <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
-      <div className="container navbar-inner">
-        <div className="navbar-brand">
-          <div className="navbar-logo">MyPortfolio</div>
+    <nav className="nav-wrap">
+      <div className="container">
+        <div className="nav">
+          {/* Brand */}
+          <a href="/" className="brand" onClick={closeMenu}>
+            <span className="dot" /> Chetan<span className="fade">Allapur</span>
+          </a>
 
-          {/* Hamburger (mobile) */}
+          {/* Desktop links */}
+          <ul className="links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+
+          {/* Actions (Resume) */}
+          <div className="actions">
+            <a
+              className="btn ghost small"
+              href="/Chetan-Allapur-Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Resume
+            </a>
+          </div>
+
+          {/* Hamburger */}
           <button
-            className="nav-toggle"
-            aria-label="Toggle navigation menu"
-            aria-expanded={menuOpen}
-            aria-controls="primary-navigation"
-            onClick={() => setMenuOpen((v) => !v)}
+            className={`hamburger ${open ? "is-open" : ""}`}
+            aria-label="Toggle navigation"
+            onClick={() => setOpen(!open)}
           >
-            <span className="bar" />
-            <span className="bar" />
-            <span className="bar" />
+            <span />
+            <span />
+            <span />
           </button>
         </div>
+      </div>
 
-        <ul id="primary-navigation" className="nav-links">
-          {nav.map(({ href, label }) => (
-            <li key={href}>
-              <a
-                href={href}
-                className={active === href ? 'active' : ''}
-                onClick={() => handleNavClick(href)}
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
+      {/* Mobile panel */}
+      <div className={`mobile ${open ? "open" : ""}`}>
+        <a href="#home" onClick={closeMenu}>Home</a>
+        <a href="#about" onClick={closeMenu}>About</a>
+        <a href="#projects" onClick={closeMenu}>Projects</a>
+        <a href="#contact" onClick={closeMenu}>Contact</a>
+        <a
+          className="btn ghost small"
+          href="/Chetan-Allapur-Resume.pdf"
+          target="_blank"
+          rel="noreferrer"
+          onClick={closeMenu}
+        >
+          Resume
+        </a>
       </div>
     </nav>
   );

@@ -1,0 +1,9 @@
+/* TEAM */
+Developer: Chetan Allapur
+Twitter: -
+GitHub: https://github.com/ChetanAllapur
+From: Bangalore, India
+
+/* SITE */
+Standards: HTML5, CSS3, ESNext
+Components: React (Vite)
