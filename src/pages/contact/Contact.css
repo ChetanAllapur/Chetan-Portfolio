@@ -58,6 +58,16 @@
 .contact-form {
   display: grid;
   gap: 12px;
+  position: relative;
+}
+
+.contact-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .field {
@@ -92,11 +102,31 @@
   border-color: rgba(255,255,255,0.18);
 }
 
+.field-error {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #ff9b9b;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 6px;
+}
+
+.contact-status {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.contact-status.success {
+  color: #8de1a2;
+}
+
+.contact-status.error {
+  color: #ff9b9b;
 }
 
 /* Local buttons for standalone usage */
@@ -131,4 +161,10 @@
 /* Active state */
 .btn:active {
   transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
 }

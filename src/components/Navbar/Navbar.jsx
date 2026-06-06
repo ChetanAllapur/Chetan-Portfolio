@@ -12,7 +12,10 @@ export default function Navbar() {
         <div className="nav">
           {/* Brand */}
           <a href="/" className="brand" onClick={closeMenu}>
-            <span className="dot" /> Chetan<span className="fade">Allapur</span>
+            <span className="brand-name">
+              <span className="dot" /> Chetan<span className="fade">Allapur</span>
+            </span>
+            <span className="brand-subtitle">React &amp; React Native Developer</span>
           </a>
 
           {/* Desktop links */}

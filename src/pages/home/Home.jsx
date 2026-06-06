@@ -1,79 +1,71 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import "./Home.css";
+
 export default function Home() {
   return (
     <section id="home" className="section">
-      {" "}
       <div className="container">
-        {" "}
-        {/* only ONE card */}{" "}
         <div className="section-card">
-          {" "}
-          {/* animate the INNER wrapper */}{" "}
-          <motion.div
+          <Motion.div
             className="card-inner home-grid"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {" "}
-            {/* Left: Intro */}{" "}
             <div className="home-intro">
-              {" "}
-              <p className="eyebrow">Hello, I’m</p>{" "}
+              <p className="eyebrow">Hello, I&apos;m</p>
               <h1 className="title">
-                {" "}
-                Chetan <span className="accent">Allapur</span>{" "}
-              </h1>{" "}
-              <p className="subtitle">Software Engineer · React / MERN</p>{" "}
+                Chetan <span className="accent">Allapur</span>
+              </h1>
+              <p className="subtitle">React &amp; React Native Developer</p>
               <p className="blurb">
-                {" "}
-                I craft clean, accessible UIs and scalable frontends. Passionate
-                about performance, DX, and shipping features with impact.{" "}
-              </p>{" "}
+                I build scalable web and mobile applications with React, React
+                Native, JavaScript, TypeScript, and Node.js. I care about clean
+                user experiences, performance, and maintainable frontend
+                architecture.
+              </p>
               <div className="cta">
-                {" "}
                 <a href="#projects" className="btn primary">
                   View Projects
-                </a>{" "}
+                </a>
                 <a href="#contact" className="btn ghost">
                   Contact Me
-                </a>{" "}
-              </div>{" "}
+                </a>
+              </div>
               <div className="quick-links">
-                {" "}
-                <a href="#about">About</a> <span>•</span>{" "}
-                <a href="#projects">Projects</a> <span>•</span>{" "}
-                <a href="#contact">Contact</a>{" "}
-              </div>{" "}
-            </div>{" "}
-            {/* Right: Highlights */}{" "}
+                <a href="#about">About</a> <span>&bull;</span>
+                <a href="#projects">Projects</a> <span>&bull;</span>
+                <a href="#contact">Contact</a>
+              </div>
+            </div>
+
             <aside className="home-aside" aria-label="Highlights">
-              {" "}
-              <div className="badge">Open to Opportunities</div>{" "}
+              <div className="badge">Open to Opportunities</div>
               <div className="stat">
-                {" "}
-                <div className="stat-value">3+ Years</div>{" "}
-                <div className="stat-label">Experience</div>{" "}
-              </div>{" "}
+                <div className="stat-value">4.5+ Years</div>
+                <div className="stat-label">Experience</div>
+              </div>
               <div className="stat">
-                {" "}
-                <div className="stat-value">4</div>{" "}
-                <div className="stat-label">Full-stack Projects</div>{" "}
-              </div>{" "}
+                <div className="stat-value">Web + Mobile</div>
+                <div className="stat-label">Development</div>
+              </div>
               <div className="tech-cloud">
-                {" "}
                 <span>React</span>
+                <span>React Native</span>
+                <span>TypeScript</span>
                 <span>Redux</span>
-                <span>Node</span> <span>Express</span>
+                <span>Node</span>
+                <span>Express</span>
                 <span>MongoDB</span>
-                <span>Vite</span> <span>Jest</span>
-                <span>GitHub</span>{" "}
-              </div>{" "}
-            </aside>{" "}
-          </motion.div>{" "}
-        </div>{" "}
-      </div>{" "}
+                <span>Tailwind</span>
+                <span>Jest</span>
+                <span>WebDriverIO</span>
+                <span>GitHub Copilot</span>
+              </div>
+            </aside>
+          </Motion.div>
+        </div>
+      </div>
     </section>
   );
 }

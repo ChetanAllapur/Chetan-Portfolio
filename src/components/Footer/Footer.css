@@ -27,6 +27,13 @@
 
 .tag { margin: 4px 0 0 0; color: var(--muted); }
 
+.meta {
+  margin: 4px 0 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .right {
   display: flex;
   flex-wrap: wrap;

@@ -1,5 +1,5 @@
+import { motion as Motion } from "framer-motion";
 import "./Projects.css";
-import { motion } from "framer-motion";
 
 export default function Projects() {
   const projects = [
@@ -61,14 +61,16 @@ export default function Projects() {
             <header className="projects-head">
               <div>
                 <h2>Projects</h2>
-                <p>Some things I’ve built and shipped.</p>
+                <p>Some things I&apos;ve built and shipped.</p>
               </div>
-              <a href="#contact" className="btn ghost">Hire Me</a>
+              <a href="#contact" className="btn ghost">
+                Hire Me
+              </a>
             </header>
 
             <div className="projects-grid" role="list">
               {projects.map((p, i) => (
-                <motion.article
+                <Motion.article
                   key={p.title}
                   className="project-card"
                   role="listitem"
@@ -82,7 +84,9 @@ export default function Projects() {
                     <p className="project-blurb">{p.blurb}</p>
                     <div className="project-tech">
                       {p.tech.map((t) => (
-                        <span key={t} className="chip">{t}</span>
+                        <span key={t} className="chip">
+                          {t}
+                        </span>
                       ))}
                     </div>
                   </div>
@@ -107,7 +111,7 @@ export default function Projects() {
                       Code
                     </a>
                   </div>
-                </motion.article>
+                </Motion.article>
               ))}
             </div>
           </div>
